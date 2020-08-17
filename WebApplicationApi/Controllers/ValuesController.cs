@@ -14,7 +14,7 @@ namespace WebApplicationApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value3" };
         }
 
         // GET api/values/5
@@ -26,20 +26,23 @@ namespace WebApplicationApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<IEnumerable<string>> Post()
         {
+            return new string[] {"value1", "value2"};
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<string> Put(int id, [FromBody] string value)
         {
+            return "putValue";
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<string> Delete(int id)
         {
+            return "deleteValue";
         }
     }
 }
